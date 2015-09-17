@@ -1,0 +1,4 @@
+Makefile
+logs/
+.old/
+templates/nginx.conf.ctmpl
