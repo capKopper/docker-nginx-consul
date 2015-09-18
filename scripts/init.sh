@@ -28,7 +28,7 @@ Nginx vars:
                         (default not set)
 
 Consul vars:
-  CONSUL_LOGLEVEL      Set the consul-template log level
+  CONSUL_LOGLEVEL       Set the consul-template log level
                         (default debug)
 
   CONSUL_CONNECT        URI for Consul agent
