@@ -3,7 +3,7 @@ FROM nginx:1.9.4
 ENV CT_VERSION 0.10.0
 
 RUN apt-get update && \
-    apt-get install wget -y
+    apt-get install wget curl -y
 RUN cd /tmp && \
     wget https://github.com/hashicorp/consul-template/releases/download/v${CT_VERSION}/consul-template_${CT_VERSION}_linux_amd64.tar.gz && \
     tar xzf consul-template_${CT_VERSION}_linux_amd64.tar.gz && \
