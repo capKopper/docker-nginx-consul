@@ -7,6 +7,8 @@ set -e
 # Required vars
 NGINX_KV=${NGINX_KV:-nginx/template/default}
 CONSUL_LOGLEVEL=${CONSUL_LOGLEVEL:-debug}
+NGINX_USER=${NGINX_USER:-nginx}
+NGINX_USER_UID=${NGINX_USER_UID:-104}
 
 export NGINX_KV
 
@@ -26,6 +28,12 @@ Nginx vars:
 
   NGINX_DEBUG                   If set, run consul-template once and check generated nginx.conf
                                 (default not set)
+
+  NGINX_USER                    User that runs nginx workers processes.
+                                (default nginx)
+
+  NGINX_USER_UID                The uid of the nginx user.
+                                (default 104)
 
 Consul vars:
   CONSUL_LOGLEVEL               Set the consul-templat  e log level
@@ -73,10 +81,22 @@ function check_nginx_kv {
     fi
 }
 
+function check_user {
+    _log "Checking that '$NGINX_USER' user exists..."
+    if [ $(grep -c $NGINX_USER /etc/passwd) == "0" ]; then
+        _debug "create user '$NGINX_USER' with uid '$NGINX_USER_UID'"
+        useradd -u $NGINX_USER_UID -s /bin/false -d /nohome $NGINX_USER
+    else
+        _debug "user exists"
+    fi
+}
+
 function do_checks {
+    check_user
     check_consul_connect
     check_nginx_kv
 }
+
 
 function launch_consul_template {
     vars=$@
