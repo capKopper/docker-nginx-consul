@@ -4,6 +4,9 @@ source /scripts/logging.lib.sh
 _log "Removing blank lines from nginx.conf..."
 sed -i -e 's/^#.*$//g' -e '/^[[:space:]]*$/d' /etc/nginx/nginx.conf
 
+_log "Changing nginx user to '$NGINX_USER'..."
+sed -i -e 's/^user.*$/user '$NGINX_USER';/' /etc/nginx/nginx.conf
+
 /usr/sbin/nginx -s reload
 if [ $? -eq 0 ]; then
   _log "Reloading nginx..."
