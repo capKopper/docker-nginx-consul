@@ -21,18 +21,18 @@ cat <<USAGE
 Configure using the following environment variables:
 
 Nginx vars:
-  NGINX_KV              Consul K/V path to template contents
-                        (default nginx/template/default)
+  NGINX_KV                      Consul K/V path to template contents
+                                (default nginx/template/default)
 
-  NGINX_DEBUG           If set, run consul-template once and check generated nginx.conf
-                        (default not set)
+  NGINX_DEBUG                   If set, run consul-template once and check generated nginx.conf
+                                (default not set)
 
 Consul vars:
-  CONSUL_LOGLEVEL       Set the consul-template log level
-                        (default debug)
+  CONSUL_LOGLEVEL               Set the consul-templat  e log level
+                                (default debug)
 
-  CONSUL_CONNECT        URI for Consul agent
-                        (default not set)
+  CONSUL_CONNECT                URI for Consul agent
+                                (default not set)
 
 Checks vars:
   CHECK_CONSUL_CONNECT          Check if the Consul agent is available
