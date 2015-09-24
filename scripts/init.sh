@@ -11,6 +11,7 @@ NGINX_USER=${NGINX_USER:-nginx}
 NGINX_USER_UID=${NGINX_USER_UID:-104}
 
 export NGINX_KV
+export NGINX_USER
 
 
 # load library
