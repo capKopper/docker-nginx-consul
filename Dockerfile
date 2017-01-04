@@ -1,4 +1,4 @@
-FROM nginx:1.9.4
+FROM nginx:1.11.8
 
 RUN apt-get update && \
     apt-get install wget curl unzip -y
