@@ -117,7 +117,7 @@ function launch_consul_template {
     touch /consul-template/templates/nginx.conf.ctmpl
 
     if [ -n "${NGINX_DEBUG}" ]; then
-        _log "Starting consul-template -once..."
+        _log "Starting consul-template in ONCE mode..."
         consul-template -log-level ${CONSUL_LOGLEVEL} \
                         -template /consul-template/templates/nginx.conf.ctmpl.in:/consul-template/templates/nginx.conf.ctmpl \
                         ${ctargs} -once
