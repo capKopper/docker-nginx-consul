@@ -3,3 +3,6 @@ logs/
 .old/
 templates/nginx.conf.ctmpl
 *.env
+
+# Local configuration
+conf/
