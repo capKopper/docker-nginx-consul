@@ -20,7 +20,7 @@ RUN wget -qO- https://github.com/just-containers/s6-overlay/releases/download/v$
 
 # Install consul-template
 # (https://github.com/hashicorp/consul-template)
-ENV CT_VER 0.10.0
+ENV CT_VER 0.11.0
 RUN wget -q -O /tmp/ct.zip https://releases.hashicorp.com/consul-template/${CT_VER}/consul-template_${CT_VER}_linux_amd64.zip && \
     unzip /tmp/ct.zip -d /usr/local/bin/ && \
     chmod +x /usr/local/bin/consul-template && \
@@ -99,4 +99,4 @@ RUN echo ""  > /usr/share/nginx/html/index.html
 CMD ["/scripts/init.sh"]
 EXPOSE 80
 
-ENV CONTAINER_VERSION 2017101201
+ENV CONTAINER_VERSION 2017102001
